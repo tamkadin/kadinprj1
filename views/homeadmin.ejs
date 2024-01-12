@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <!-- =============================================== -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quản lý điểm</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../../dist/css/skins/_all-skins.min.css">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="../../index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>QL</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Quản lý điểm</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="/image/user.png" class="user-image" alt="User Image">
+              <span class="hidden-xs"><%= username %></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="/image/user.png" class="img-circle" alt="User Image">
+                <p>
+                  <%= username %>
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer" style="text-align: center;">
+                <div>
+                    <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- =============================================== -->
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="/image/user.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p><%= username %></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Giảng viên</a>
+        </div>
+      </div>
+    </section>
+  </aside>
+  <!-- =============================================== -->
+  
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        <b>Nhập liệu điểm theo mã lớp</b>
+      </h1>
+    </section>
+    <section class="content">
+      <!-- Form upload điểm -->
+    <form action="/teacher/upload" method="post" enctype="multipart/form-data">
+      <label for="classID">Mã Lớp:</label>
+      <input type="text" id="classID" name="classID" required><br>
+      <label for="classname">Tên Học Phần :</label>
+      <input type="text" id="classname" name="classname" required><br>
+      <label for="gradesFile">Chọn File Điểm (Excel hoặc CSV):</label>
+      <input type="file" id="gradesFile" name="gradesFile" accept=".xlsx, .csv" required><br>
+      <% if (typeof errorMessage1 !== 'undefined' && errorMessage1 !== null) { %>
+        <p class="error-message1"><extext1><%= errorMessage1 %></extext1></p>
+        <br>
+    <% } %>
+      <input type="hidden" name="username" value="<%= username %>">
+      <input type="hidden" name="userID" value="<%= userID %>">
+      <button type="submit">Upload</button>
+      <% if (typeof errorMessage !== 'undefined' && errorMessage !== null) { %>
+        <p class="error-message"><extext1><%= errorMessage %></extext1></p>
+    <% } %>
+    </form>
+    </section>
+  </div>
+
+<!-- =============================================== -->
+  <!-- Thanh điều khiển bên -->
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+    <!-- Phần nền cho thanh điều khiển bên -->
+    <div class="control-sidebar-bg"></div>
+    <!-- =============================================== -->
+    <!-- Các script còn lại -->
+    <!-- jQuery, Bootstrap, SlimScroll, FastClick, AdminLTE App, AdminLTE for demo purposes -->
+    <script src="../../plugins/jQuery/jQuery-2.2.0.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="../../plugins/fastclick/fastclick.js"></script>
+    <script src="../../dist/js/app.min.js"></script>
+    <script src="../../dist/js/demo.js"></script>
+    </body>
+    </html>
+  
+    <!-- footer -->
+    <footerindex>
+      <p>Copy right @ by <extext>Kadin</extext> a.k.a <extext>Hữu Tâm</extext></p>
+    </footerindex>
+  </body>
+  </html>
